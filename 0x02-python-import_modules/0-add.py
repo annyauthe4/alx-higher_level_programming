@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Import the add function from the add_0 module
+# Import the add function from the module
 from add_0 import add
 
 

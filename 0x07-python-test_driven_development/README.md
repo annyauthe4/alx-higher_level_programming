@@ -1,0 +1,1 @@
+Test Driven Devlopment - TDD is a project that ensures all edge cases of a function or methods are considered when designing a particular software. In this project, both unittest and doctest approach are applied.

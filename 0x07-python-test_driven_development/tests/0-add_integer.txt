@@ -19,3 +19,7 @@ TypeError: a must be an integer
 Traceback (most recent call last):
 ...
 TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+>>> add_integer(2O, 20)
+Traceback (most recent call last):
+...
+SyntaxError: invalid decimal literal

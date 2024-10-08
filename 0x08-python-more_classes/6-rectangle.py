@@ -6,12 +6,14 @@ invalid inputs.
 
 
 class Rectangle:
-    """This class defines a rectangle with private
-    instance attributes.
+    """This class defines a rectangle with width and height,
+    tracks the instance count, and provides methods for
+    areas, perimeters and string representation.
     """
     number_of_instances = 0
+
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle with width and height.
+        """Initializes the rectangle and increments the count.
 
         Args:
             width (int): The width of the rectangle (default is 0).
@@ -102,6 +104,6 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
-        """Delete the instance of a class when used explicitly"""
+        """Delete the instance of a class and decrements the class"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")

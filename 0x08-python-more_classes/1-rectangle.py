@@ -10,8 +10,18 @@ class Rectangle:
     instance attributes.
     """
     def __init__(self, width=0, height=0):
-        self.__height = height
-        self.__width = width
+        """Initializes the rectangle with width and height.
+
+        Args:
+            width (int): The width of the rectangle (default is 0).
+            height (int): The height of the rectangle (default is 0).
+
+        Raises:
+            TypeError: If width or height is not an integer.
+            ValueError: If width or height is less than 0.
+        """
+        self.height = height
+        self.width = width
 
     @property
     def width(self):

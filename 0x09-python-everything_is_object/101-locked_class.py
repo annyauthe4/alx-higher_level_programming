@@ -3,6 +3,8 @@
 creation of an instance of all class attributes
 except the one indicated in `slots`
 """
+
+
 class LockedClass:
     """A locked class that prevents the creation
     of any instance of the class attributes except

@@ -1,0 +1,15 @@
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList([3, 0, 6, 7, 4])
+>>> my_list.print_sorted()
+[0, 3, 4, 6, 7]
+>>> my_list = MyList([-1, 2, 0])
+>>> my_list.print_sorted()
+[-1, 0, 2]
+>>> my_list = MyList([1, 2, "three"])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+    ...
+TypeError: All elements must be integers
+>>> my_list = MyList([])
+>>> my_list.print_sorted()
+[]

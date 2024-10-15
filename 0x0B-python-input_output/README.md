@@ -1,0 +1,1 @@
+Python I/O is a way Python handles input and output files. It also include using Javascript Object Notation (JSON) to serialize - Convert javascript objects into JSON string and deserializing - Converting JSON strings to Python Objects

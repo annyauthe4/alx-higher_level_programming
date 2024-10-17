@@ -37,9 +37,9 @@ if __name__ == "__main__":
     try:
         bg.integer_validator()
     except TypeError as e:
-        print("{}: ".format(e))
+        print(e)
 
     try:
         bg.integer_validator("my_param")
     except TypeError as e:
-        print("{}: ".format(e))
+        print(e)

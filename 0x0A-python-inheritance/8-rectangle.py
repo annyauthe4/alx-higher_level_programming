@@ -1,38 +1,12 @@
 #!/usr/bin/python3
-"""This module includes a class whose method is partially
-implemented and validated"""
+"""This module includes a subclass, rectangle"""
 
 
-class BaseGeometry:
-    """A class exception raising method"""
-
-    def area(self):
-        """Raises an exception indicating that the area
-        method is not implemented.
-        """
-
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """Validates integer.
-
-        Args:
-            name (str): user inputs.
-            value (int): user input
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: if value is less or equal to zero.
-        """
-
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """A rectangle class"""
+    """A subclass representing a rectangle"""
 
     def __init__(self, width, height):
         """Initializes instance of rectangle

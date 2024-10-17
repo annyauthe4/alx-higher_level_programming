@@ -29,17 +29,3 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
-
-
-if __name__ == "__main__":
-    bg = BaseGeometry()
-
-    try:
-        bg.integer_validator()
-    except TypeError as e:
-        print(e)
-
-    try:
-        bg.integer_validator("my_param")
-    except TypeError as e:
-        print(e)

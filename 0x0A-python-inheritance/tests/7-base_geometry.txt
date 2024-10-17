@@ -5,12 +5,44 @@ None
 >>> print(bg.integer_validator("name", "John"))
 Traceback (most recent call last):
 ...
-TypeError: <name> must be an integer
+TypeError: name must be an integer
 >>> print(bg.integer_validator("age", 0))
 Traceback (most recent call last):
 ...
-ValueError: <name> must be greater than 0
->>> print(bg.integer_validator("age", None))
+ValueError: age must be greater than 0
+>>> print(bg.integer_validator("float_i", 3.26))
 Traceback (most recent call last):
 ...
-ValueError: <name> must be greater than 0
+TypeError: float_i must be an integer
+>>> print(bg.integer_validator("boolean", True))
+Traceback (most recent call last):
+...
+TypeError: boolean must be an integer
+>>> print(bg.integer_validator("distance", -4))
+Traceback (most recent call last):
+...
+ValueError: distance must be greater than 0
+>>> bg.integer_validator("name", None)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+>>> bg.integer_validator("name", 2+5j)
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.integer_validator("name", [1, 2])
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.integer_validator("name", [1, 2])
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+>>> bg.integer_validator("name", {"a": 8})
+Traceback (most recent call last):
+...
+TypeError: name must be an integer

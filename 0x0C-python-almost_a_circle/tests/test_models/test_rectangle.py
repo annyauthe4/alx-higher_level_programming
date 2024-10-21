@@ -1,3 +1,4 @@
+from models.base import Base
 import unittest
 from models.rectangle import Rectangle
 
@@ -7,7 +8,7 @@ class TestRectangle(unittest.TestCase):
 
     def setUp(self):
         """Resets the private class attribute of the Base class"""
-        Rectangle._Base__nb_objects = 0
+        Base._Base__nb_objects = 0
 
     def test_rectangle_instance(self):
         """Test if rectangle instance is created with the right attr"""
@@ -36,6 +37,38 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 20)
         self.assertEqual(r.x, 30)
         self.assertEqual(r.y, 40)
+
+    def test_invalid_width(self):
+        """Test for invalid width input."""
+        r = Rectangle(10, 20)
+        with self.assertRaises(TypeError):
+            r.width = "15"
+        with self.assertRaises(ValueError):
+            r.width = -5
+
+    def test_invalid_height(self):
+        """Test setting invalid height raises error."""
+        r = Rectangle(5, 10)
+        with self.assertRaises(TypeError):
+            r.height = [13]
+        with self.assertRaises(ValueError):
+            r.height = 0
+
+    def test_invalid_x(self):
+        """Test setting invalid x raises error"""
+        r = Rectangle(13, 15)
+        with self.assertRaises(TypeError):
+            r.x = 5.5
+        with self.assertRaises(ValueError):
+            r.x = -5
+
+    def test_invalid_y(self):
+        """Test setting invalid y raises error."""
+        r = Rectangle(10, 30)
+        with self.assertRaises(TypeError):
+            r.y = "10"
+        with self.assertRaises(ValueError):
+            r.y = -8
 
 
 if __name__ == "__main__":

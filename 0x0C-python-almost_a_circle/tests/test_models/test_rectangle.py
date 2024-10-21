@@ -1,6 +1,8 @@
 from models.base import Base
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+from unittest.mock import patch
 
 
 class TestRectangle(unittest.TestCase):
@@ -84,6 +86,24 @@ class TestRectangle(unittest.TestCase):
         r.width = 3
         r.height = 4
         self.assertEqual(r.area(), 12)
+
+    def test_display(self):
+        """Test display method of the rectangle instance class."""
+        r = Rectangle(3, 2)
+        expected_output = "###\n###\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r.display()
+        self.assertEqual(fake_out.getvalue(), expected_output)
+
+    def test_display_with_setter(self):
+        """Test display method using setter method"""
+        r = Rectangle(5, 4)
+        r.width = 2
+        r.height = 3
+        expected_out = "##\n##\n##\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r.display()
+        self.assertEqual(fake_out.getvalue(), expected_out)
 
 
 if __name__ == "__main__":

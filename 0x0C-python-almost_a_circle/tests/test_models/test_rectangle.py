@@ -38,6 +38,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 30)
         self.assertEqual(r.y, 40)
 
+
     def test_invalid_width(self):
         """Test for invalid width input."""
         r = Rectangle(10, 20)
@@ -69,6 +70,20 @@ class TestRectangle(unittest.TestCase):
             r.y = "10"
         with self.assertRaises(ValueError):
             r.y = -8
+
+    def test_area(self):
+        """Test the area method of the rectangle class."""
+        r = Rectangle(5, 4, 0, 0, 2)
+        self.assertEqual(r.area(), 20)
+        r = Rectangle(2, 4)
+        self.assertEqual(r.area(), 8)
+
+    def test_area_with_setter_getter(self):
+        """Test area method using setter-getter method."""
+        r = Rectangle(4, 6)
+        r.width = 3
+        r.height = 4
+        self.assertEqual(r.area(), 12)
 
 
 if __name__ == "__main__":

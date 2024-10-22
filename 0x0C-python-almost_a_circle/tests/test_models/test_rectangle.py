@@ -95,12 +95,22 @@ class TestRectangle(unittest.TestCase):
             r.display()
         self.assertEqual(fake_out.getvalue(), expected_output)
 
+    def test_display_with_x_y(self):
+        """Test display method with x and y coordinates."""
+        r = Rectangle(3, 4, 2, 1)
+        expected = "\n  ###\n  ###\n  ###\n  ###\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            r.display()
+        self.assertEqual(fake_out.getvalue(), expected)
+
     def test_display_with_setter(self):
         """Test display method using setter method"""
         r = Rectangle(5, 4)
         r.width = 2
         r.height = 3
-        expected_out = "##\n##\n##\n"
+        r.x = 2
+        r.y = 1
+        expected_out = "\n  ##\n  ##\n  ##\n"
         with patch('sys.stdout', new=StringIO()) as fake_out:
             r.display()
         self.assertEqual(fake_out.getvalue(), expected_out)

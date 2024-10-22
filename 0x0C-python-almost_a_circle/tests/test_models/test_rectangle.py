@@ -148,6 +148,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.y, 50)
 
     def test_update_with_less_arg(self):
+        """Test update method with args."""
         r = Rectangle(2, 3, 4, 5)
         r.update(54)
         self.assertEqual(r.id, 54)
@@ -155,6 +156,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.height, 3)
         self.assertEqual(r.x, 4)
         self.assertEqual(r.y, 5)
+
+    def test_update_with_kwargs(self):
+        """Test update method with kwargs."""
+        r = Rectangle(3, 4, 5, 6)
+        r.update(id=10, width=20, height=30, x=40)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 20)
+        self.assertEqual(r.height, 30)
+        self.assertEqual(r.x, 40)
+        self.assertEqual(r.y, 6)
 
 
 if __name__ == "__main__":

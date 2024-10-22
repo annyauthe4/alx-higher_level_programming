@@ -137,6 +137,25 @@ class TestRectangle(unittest.TestCase):
         expected = "[Rectangle] (1) 4/9 - 5/7"
         self.assertEqual(str(r), expected)
 
+    def test_update_attributes(self):
+        """Test the update attributes."""
+        r = Rectangle(3, 4, 5, 6)
+        r.update(10, 20, 30, 40, 50)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 20)
+        self.assertEqual(r.height, 30)
+        self.assertEqual(r.x, 40)
+        self.assertEqual(r.y, 50)
+
+    def test_update_with_less_arg(self):
+        r = Rectangle(2, 3, 4, 5)
+        r.update(54)
+        self.assertEqual(r.id, 54)
+        self.assertEqual(r.width, 2)
+        self.assertEqual(r.height, 3)
+        self.assertEqual(r.x, 4)
+        self.assertEqual(r.y, 5)
+
 
 if __name__ == "__main__":
      unittest.main()

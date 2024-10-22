@@ -105,6 +105,28 @@ class TestRectangle(unittest.TestCase):
             r.display()
         self.assertEqual(fake_out.getvalue(), expected_out)
 
+    def test_str_method(self):
+        """Test the __str__ method of the Rectangle class."""
+        r = Rectangle(4, 5, 1, 2, 6)
+        expected = "[Rectangle] (6) 1/2 - 4/5"
+        self.assertEqual(str(r), expected)
+
+    def test_str_with_auto_id(self):
+        """Test __str__ method with auto id generation."""
+        r = Rectangle(3, 6, 4, 5)
+        expected = "[Rectangle] (1) 4/5 - 3/6"
+        self.assertEqual(str(r), expected)
+
+    def test_str_with_setter(self):
+        """Test __str__ method with setter."""
+        r = Rectangle(10, 15)
+        r.width = 5
+        r.height = 7
+        r.x = 4
+        r.y = 9
+        expected = "[Rectangle] (1) 4/9 - 5/7"
+        self.assertEqual(str(r), expected)
+
 
 if __name__ == "__main__":
      unittest.main()

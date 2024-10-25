@@ -1,9 +1,14 @@
 import unittest
 from models.square import Square
+from models.base import Base
 
 
 class TestSquare(unittest.TestCase):
     """Unittest for the square class."""
+
+    def setUp(self):
+        """Resets id to zero after each test."""
+        Base._Base__nb_objects = 0
 
     def test_square_initialization(self):
         """Test initializing square with rectangle init method."""
@@ -81,6 +86,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 9)
         self.assertEqual(s.y, 11)
         self.assertEqual(s.id, 12)
+
+    def test_to_dictionary(self):
+        """Test dict rep of object method."""
+        s = Square(10, 2, 3)
+        result = {'size': 10, 'x': 2, 'y': 3, 'id': 1}
+        self.assertEqual(s.to_dictionary(), result)
 
 
 if __name__ == "__main__":

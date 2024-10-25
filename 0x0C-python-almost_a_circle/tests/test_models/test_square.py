@@ -44,3 +44,22 @@ class TestSquare(unittest.TestCase):
         """Test square area from Rectangle area method."""
         s = Square(5)
         self.assertEqual(s.area(), 25)
+
+    def test_square_getter(self):
+        """Returns square size."""
+        s = Square(17)
+        self.assertEqual(s.size, 17)
+
+    def test_square_setter(self):
+        """Test the setter for square."""
+        s = Square(5)
+        s.size = 25
+        self.assertEqual(s.width, 25)
+        self.assertEqual(s.height, 25)
+
+    def test_square_invalid_size(self):
+        """Test invalid size input."""
+        with self.assertRaises(TypeError):
+            Square("6")
+        with self.assertRaises(ValueError):
+            Square(-6)

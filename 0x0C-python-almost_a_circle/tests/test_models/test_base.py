@@ -1,4 +1,5 @@
 import unittest
+import json
 import os
 from models.base import Base
 from models.rectangle import Rectangle
@@ -113,6 +114,28 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r", encoding="utf-8") as file:
             content = file.read()
         self.assertEqual(content, "[]")
+
+    def test_from_json_string_none(self):
+        """Test from json string with none."""
+        result = Base.from_json_string(None)
+        self.assertEqual(result, [])
+
+    def test_from_json_string_empty(self):
+        """Test with empty lsit."""
+        result = Base.from_json_string("")
+        self.assertEqual(result, [])
+
+    def test_from_json_string_valid(self):
+        """Test from_json_string with a valid JSON string."""
+        json_str = '[{"id": 1, "name": "Rectangle"}, {"id": 2, "name": "Square"}]'
+        expected = [{"id": 1, "name": "Rectangle"}, {"id": 2, "name": "Square"}]
+        result = Base.from_json_string(json_str)
+        self.assertEqual(result, expected)
+
+    def test_from_json_string_invalid(self):
+        """Test from_json_string with invalid JSON string raises an error."""
+        with self.assertRaises(json.JSONDecodeError):
+            Base.from_json_string("{id: 1, name: Rectangle}")
 
 
 if __name__ == "__main__":

@@ -10,15 +10,15 @@ You must use a loop (while, for, etc.)
 */
 
 const args = process.argv.slice(2);
-const num = parseInt(args);
+const num = parseInt(args[0]);
 
-if (isNaN(num) || num === undefined) {
+if (isNaN(num)) {
   console.log('Missing size');
 } else {
   for (let i = 0; i < num; i++) {
     let row = '';
     for (let j = 0; j < num; j++) {
-      row += 'x';
+      row += 'X';
     }
     console.log(row);
   }

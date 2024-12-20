@@ -1,8 +1,8 @@
-// Returns the reversed version of a list
+// Returns the desrever version of a list
 exports.esrever = function (list) {
-  const reversedList = [];
+  const desreverList = [];
   for (let i = list.length - 1; i >= 0; i--) {
-    reversedList.push(list[i]);
+    desreverList.push(list[i]);
   }
-  return reversedList;
+  return desreverList;
 };

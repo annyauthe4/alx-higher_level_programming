@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 // Returns the desrever version of a list
 exports.esrever = function (list) {
   const desreverList = [];

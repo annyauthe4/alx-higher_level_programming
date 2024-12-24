@@ -7,3 +7,13 @@ CREATE TABLE IF NOT EXISTS states (
     PRIMARY KEY (id)
 );
 INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
+DELETE FROM states
+WHERE id NOT IN (
+    SELECT id
+    FROM (
+        SELECT MIN(id) AS id
+        FROM states
+        GROUP BY name
+    ) AS subquery
+);
+ALTER TABLE states ADD UNIQUE (name);
